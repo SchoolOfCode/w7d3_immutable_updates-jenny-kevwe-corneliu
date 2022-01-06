@@ -56,6 +56,9 @@ export function toggleTeaStatus(object) {
 // should give back:
 //    [{ task: "Cooking", completed: true }, { task: "Walking", completed: true }]
 export function toggleListItemCompleted(array, index) {
-    return [...array.slice(0, index), {...array[index], completed: !array[index].completed}, ...array.slice(index+1)]
+    return [...array.slice(0, index), { ...array[index], completed: !array[index].completed }, ...array.slice(index + 1)]
+    // first we take a slice/copy of the original array up to the index we want to change
+    // then we add the required element (which is an object) to the array as a spread, but change the completed key/value to be the opposite of what it was before 
+    // finally we add the remainder of the original array with a slice from the index+1 position
 
 }
